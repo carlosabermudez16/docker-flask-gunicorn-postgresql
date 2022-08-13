@@ -1,0 +1,59 @@
+{% extends 'base.html' %}
+
+{% block title %} Loggin {% endblock %}
+
+{% block content %}
+    <div class="container" style="background-color: bisque;">
+        <h1 style="margin-top: 10px; text-align: center;">Iniciar sesión</h1>
+
+        {% from "_macro.html" import render_field %}
+        
+        <div class="container" style="background-color: rgb(240, 158, 158);">
+            <div class="row">
+                <br>
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    <form action="{{url_for('rg.loggin')}}" name="sentMessage" id="contactForm" method="POST">
+                        <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+                        
+                        <div class="row control-group">
+                            <div class="form-group col-xs-12 floating-label-form-group controls">
+                                {{ render_field(form.username, class="form-control") }}
+                                <p class="help-block text-danger"></p>
+                            </div>
+                        </div>
+                        
+                        <div class="row control-group">
+                            <div class="form-group col-xs-12 floating-label-form-group controls">
+                                {{ render_field(form.password, class="form-control") }}
+                                <p class="help-block text-danger"></p>
+                            </div>
+                        </div>
+                        <div class="row control-group">
+                            <div class="form-group" style="display: flex;">
+                                {{ render_field(form.remember , style=" margin-left:10px;margin-top: 8px;")}}
+                            </div>
+                        </div>
+
+                        {{ form.honeypot }}
+
+                        <br>
+                        <div id="success"></div>
+                        <div class="row" style="margin-bottom: 20px;">
+                            <div class="form-group col-xs-12">
+                                <button type="submit" class="btn btn-success">Enviar</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div class="row">
+                <a href="{{url_for('rg.register')}}" style="color: brown;"> <b> Registrarse </b></a>
+            </div>
+            <br>
+            <div class="row">
+                <a href="{{ url_for('rg.restore') }}" style="color: brown;"> <b> Olvidó su contraseña? </b></a>
+            </div>
+        </div>
+
+    </div>
+{% endblock %}

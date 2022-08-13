@@ -1,0 +1,87 @@
+{% extends 'base.html' %}
+
+{% block title %} Dashboard {% endblock %}
+
+{% block content %}
+    <div class="container">
+        <div class="row">
+            <div class="col-10">
+                <h1 style="text-align: center; margin-top:20px; color: rgb(237, 152, 100);">Bienvenido a la Dashboard</h1>
+            </div>
+            <div class="col-2">
+                <h6 style="text-align: left; margin-top:20px; color: rgb(7, 3, 43);">Usuario: {{usuario}} </h6>
+            </div>
+        </div>
+        <div style="display: flex;"> <a href= "{{ url_for('rg.logout') }}" class="btn btn-warning">Logout</a> </div>
+        <br>
+    </div>
+    <section style="background-color: bisque;">
+        <div class="container"> <h5> Publicar un comentario </h5> </div>
+
+        {% from "_macro.html" import render_field %}
+        
+        <div class="container">
+            <div class="row">
+                <form name="sentComment" id="commentForm" method="POST">
+                    <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+                    
+                    <div class="row control-group">
+                        <div class="form-group col-xs-12 floating-label-form-group controls">
+                            {{ render_field(form.comment, class = "limpiartextarea") }}
+                        </div>
+                    </div>
+
+                    <div class="row" style="margin-bottom: 20px;">
+                        <div class="form-group col-xs-12">
+                            <input  type="submit" 
+                                    value="Públicar"
+                                    class="btn btn-success"
+                                    >
+                                    
+                            </input>
+                        </div>
+                    </div>
+                </form>
+                <script>
+                    
+                        document.getElementById('comment').value = "";
+                    
+                </script>
+            </div>
+
+        </div>
+
+
+        
+    </section>
+
+    
+    <section style="background-color: bisque;">
+        <div class="container">
+            <div class="row">
+                <h1 style="text-align: center; margin-top:20px; color: cornflowerblue;">Publicaciones de usuarios</h1>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row">
+                {% if comments %}
+                    {% for comment in comments %}
+                        <div class="row">
+                            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                                <hr>
+                                <h2 class="section-heading"> {{ comment.username }} </h2>
+                                <h5> {{ date_format(comment.created_date) }} </h5>
+                                <p> {{ comment.text }} </p>
+                                
+                                <a href="/delete/{{comment.id}}" style="color: crimson;">Borrar</a>
+                            </div>
+                        </div>
+                    {% endfor %}
+                {% endif %}
+            </div>
+        </div>
+    </section>
+
+{% endblock %}
+
+

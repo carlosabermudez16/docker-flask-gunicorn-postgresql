@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block title %} Home {% endblock %}
+
+{% block content %}
+    <div class="container">
+        <h1>Primera página de inicio</h1>
+    </div>
+    <div class="container">
+        <div class="row">
+            <img style="height: 200px; width: 200px;" src="{{ url_for('static', filename = 'img/drones_01.jpg') }}">
+        </div>
+    </div>
+    <br>
+    <div class="container">
+        <div class="row">
+            <a href="{{ url_for('rg.register') }}" style="color: brown;"> <b>Registrarse</b> </a>
+            <a href="{{ url_for('rg.loggin') }}" style="color: brown;"> <b>Loggin</b> </a>
+            <a href="{{ url_for('b_c.publication_noapi') }}" style="color: brown;"> <b>Publication</b> </a>
+            <a href="/publication" style="color: brown;"> <b>Consumir-api-comments</b> </a>
+        </div>
+    </div>
+{% endblock %}

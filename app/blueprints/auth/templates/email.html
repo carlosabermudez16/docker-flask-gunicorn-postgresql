@@ -1,0 +1,18 @@
+<html>
+    <head>
+        <title> Gracias </title>
+    </head>
+    <body>
+        <h3> Muchas gracias por tú registro {{ username }} </h3>
+        <div class="row">
+            <img style="height: 200px; width: 200px;" src="{{ url_for('static', filename = 'img/drones_01.jpg') }}">
+        </div>
+        <hr>
+        <p>Welcome! Thanks for signing up. Please follow this link to activate your account:</p>
+        <p><a href="{{ confirm_url }}">{{ confirm_url }}</a></p>
+        <br>
+        <p>Cheers!</p>
+        
+    </body>
+
+</html>

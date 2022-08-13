@@ -1,0 +1,34 @@
+Estructura tipo 3:
+-app
+ 
+ --> middlewares/
+ --> blueprints/
+ --> controllers/
+		--> routes
+		--> api/
+ --> data/
+ --> database/
+ --> models/
+ --> static/
+	--> css
+	--> ico
+	--> img
+	--> js
+	--> lib
+ --> template/
+	--> auth (blueprint)
+	--> dashboard (blueprint)
+	--> home (blueprint)
+	--> publication (blueprint)
+ --> utils/
+ --> views/
+ --> __init__.py
+-migrations/ 
+-env/
+-.env
+-.gitignore
+-config/
+	--> config.py
+-README.md
+-requirements.txt
+-run.py

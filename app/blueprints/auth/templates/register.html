@@ -1,0 +1,56 @@
+{% extends 'base.html' %}
+{%block head%} <script src="https://www.google.com/recaptcha/api.js"></script> {%endblock%}
+{% block title %} Register {% endblock %}
+
+{% block content %}
+    <div class="container" style="background-color: bisque;">
+        <h1 style="margin-top: 10px; text-align: center;">Registrarse</h1>
+
+        {% from "_macro.html" import render_field %}
+        
+        <div class="container" style="background-color: rgb(240, 158, 158);">
+            <div class="row">
+                <br>
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    <form action="{{url_for('rg.register')}}" name="sentMessage" id="contactForm" method="POST">
+                        <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+                        <div class="row control-group">
+                            <div class="form-group col-xs-12 floating-label-form-group controls">
+                                {{ render_field(form.username, class="form-control") }}
+                            </div>
+                        </div>
+                        <div class="row control-group">
+                            <div class="form-group col-xs-12 floating-label-form-group controls">
+                                {{ render_field(form.email, class="form-control") }}
+                            </div>
+                        </div>
+                        <div class="row control-group">
+                            <div class="form-group col-xs-12 floating-label-form-group controls">
+                                {{ render_field(form.password, class="form-control") }}
+                            </div>
+                        </div>
+                        <div class="row control-group">
+                            <div class="form-group col-xs-12 floating-label-form-group controls">
+                                {{ render_field(form.confirm_password, class="form-control") }}
+                            </div>
+                        </div>
+
+
+                        {{ form.honeypot }}
+
+                        <div class="g-recaptcha" align = "center" data-sitekey="{{ sitekey }}"></div>
+                        
+                        <br>
+                        <div id="success"></div>
+                        <div class="row" style="margin-bottom: 20px;">
+                            <div class="form-group col-xs-12">
+                                <button type="submit" class="btn btn-success">Enviar</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+    </div>
+{% endblock %}

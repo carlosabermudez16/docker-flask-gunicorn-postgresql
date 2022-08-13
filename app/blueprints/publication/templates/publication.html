@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% block title %} Publicaciones {% endblock %}
+
+{% block content %}
+    <div class="container">
+        <div class="row">
+            <h1 style="text-align: center; margin-top:20px; color: cornflowerblue;">Publicaciones de usuarios</h1>
+        </div>
+    </div>
+    <section style="background-color: bisque;">
+        <div class="container">
+            <div class="row">
+                {% if comments %}
+                    {% for comment in comments %}
+                        <div class="row">
+                            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                                <hr>
+                                <h2 class="section-heading"> {{ comment.username }} </h2>
+                                <h5> {{ date_format(comment.created_date) }} </h5>
+                                <p> {{ comment.text }} </p>
+                            </div>
+                        </div>
+                    {% endfor %}
+                {% endif %}
+            </div>
+        </div>
+    </section>
+{% endblock %}
