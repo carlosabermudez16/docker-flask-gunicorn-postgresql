@@ -1,5 +1,7 @@
 
-
+crea la imagen --> sudo docker-compose build
+crea y lanza el contenedor --> sudo docker-compose up
+finaliza el contenedor --> sudo docker-compose down
 -------------------------------
 
 sudo docker volume ls
