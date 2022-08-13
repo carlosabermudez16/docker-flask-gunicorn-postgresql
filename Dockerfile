@@ -9,5 +9,4 @@ RUN python3 -m pip install -r requirements.txt
 COPY . /application
 EXPOSE 4000
 # Run Flask command
-CMD gunicorn --worker-class --workers 8 --bind 0.0.0.0:4000 wsgi:app --max-requests 10000 --timeout 5 --keep-alive 5 --log-level info
-#CMD ["gunicorn", "-b", "0.0.0.0:4000", "wsgi:app"]
+CMD ["gunicorn", "-b", "0.0.0.0:4000", "wsgi:app"]
