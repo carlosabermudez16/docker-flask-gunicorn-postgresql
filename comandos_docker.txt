@@ -19,3 +19,12 @@ sudo docker-compose ps
 
 
 -------------------------------
+
+https://www.digitalocean.com/community/tutorials/how-to-remove-docker-images-containers-and-volumes-es
+https://github.com/rednafi/flask-factory
+https://github.com/cyberj0g/flask-deploy
+https://www.toptal.com/flask/flask-production-recipes
+https://colaboratorio.net/davidochobits/sysadmin/2018/crear-imagenes-medida-docker-dockerfile/
+https://geekflare.com/es/docker-manage-containers/
+
+
