@@ -1,5 +1,6 @@
 
 
+-------------------------------
 
 sudo docker volume ls
 sudo docker ps -a
@@ -15,3 +16,4 @@ sudo docker-compose images
 sudo docker-compose ps
 
 
+-------------------------------
