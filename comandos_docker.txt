@@ -1,0 +1,17 @@
+
+
+
+sudo docker volume ls
+sudo docker ps -a
+sudo docker images -a
+
+volume --> sudo docker volume rm VOLUME NAME
+container --> sudo docker rm id
+images --> sudo docker rmi id
+
+
+
+sudo docker-compose images
+sudo docker-compose ps
+
+

@@ -22,7 +22,7 @@ services:
       - db
 
   website:
-    build: ./app
+    build: ./
     ports:
       - 4000:4000
     depends_on:

@@ -6,7 +6,7 @@ from flask_wtf import CSRFProtect
 from flask_login import LoginManager
 from flask_mail import Mail
 
-from config.config import DevelopmentConfig, ProductionConfig, CloudDev
+from config.config import DevelopmentConfig, ProductionConfig, CloudDev, DevDocker
 
 #Cors = CORS()
 db = SQLAlchemy()
@@ -27,6 +27,8 @@ def create_app(config_class):
             configuration = DevelopmentConfig
         elif config_class == 'cloud':
             configuration = CloudDev
+        elif config_class == 'dev_docker':
+            configuration = DevDocker
     except:
         print('hubo un error en la configuración')
 
@@ -83,7 +85,7 @@ def create_app(config_class):
     return app
 
 
-if __name__ == "__main__":
-    app = create_app()
-    app.run(host='0.0.0.0')
+#if __name__ == "__main__":
+#    app = create_app()
+#    app.run(host='0.0.0.0')
 
