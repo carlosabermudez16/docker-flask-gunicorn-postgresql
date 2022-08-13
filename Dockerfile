@@ -7,6 +7,5 @@ WORKDIR /application
 COPY ./requirements.txt /application
 RUN python3 -m pip install -r requirements.txt
 COPY . /application
-EXPOSE 5000
 # Run Flask command
 CMD ["gunicorn", "-b", "0.0.0.0:5000", "wsgi:app"]
