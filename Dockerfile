@@ -8,4 +8,4 @@ COPY ./requirements.txt /application
 RUN python3 -m pip install -r requirements.txt
 COPY . /application
 # Run Flask command
-CMD ["gunicorn", "-b", "0.0.0.0:5000", "wsgi:app"]
+CMD ["gunicorn", "-b", "127.0.0.1:8080","--log-level=debug", "wsgi:app"]

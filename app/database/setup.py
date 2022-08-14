@@ -36,5 +36,7 @@ def create_tables(app, db, config_class):
         return True
     except:
         print(f"Error at create_tables()" )
+        logging.debug(f'el valor de entrada es:{config_class}')
+        logging.debug(app.config['SQLALCHEMY_DATABASE_URI'])
         logging.debug('Error en la creación de la tabla')
     
