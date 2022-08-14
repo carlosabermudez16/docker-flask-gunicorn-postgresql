@@ -30,6 +30,7 @@ def create_tables(app, db, config_class):
                 
             print(f"\nConexión a base de datos {name} exitosa!")
             db.metadata.create_all(engine)    # crea la tabla en la base de datos que se encuentra en la cadena de conexion(url)                
+            logging.debug(f'\n\nel valor de entrada es:{config_class}')
             logging.debug("Tabla creada exitosamente!\n")
             logging.debug(app.config['SQLALCHEMY_DATABASE_URI'])
             logging.debug('Creación de tablas exisotamente')
@@ -37,6 +38,5 @@ def create_tables(app, db, config_class):
     except:
         print(f"Error at create_tables()" )
         logging.debug(f'el valor de entrada es:{config_class}')
-        logging.debug(app.config['SQLALCHEMY_DATABASE_URI'])
         logging.debug('Error en la creación de la tabla')
     
