@@ -26,6 +26,7 @@ def create_tables(app, db, config_class):
             elif config_class == 'dev_docker':
                 engine = create_engine(app.config['SQLALCHEMY_DATABASE_URI'])
                 name = 'Postgresql_docker'
+                logging.debug(engine)
                 logging.debug(name)
                 
             print(f"\nConexión a base de datos {name} exitosa!")

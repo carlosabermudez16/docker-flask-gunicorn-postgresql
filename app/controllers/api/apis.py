@@ -1,7 +1,8 @@
-
+import logging
 from app.controllers.queries.querys import comments
 from flask import jsonify,render_template
 from app.controllers.api import blue_api
+logging.basicConfig(level=logging.DEBUG)
 
 @blue_api.route('/', defaults = {'path': ''})
 @blue_api.route('/<path:path>')
@@ -13,6 +14,7 @@ def api_publication():
     
     try:
         datos = comments.get_comment()
+        logging.debug(datos)
         lista = []
         for data in datos:
             dic = {}
