@@ -1,5 +1,5 @@
 # usamos una imagen existente compatible con versiones de python
-FROM tiangolo/uwsgi-nginx-flask:python3.8
+FROM python:3
 # creamos un directorio de trabajo build_context
 RUN mkdir /application
 WORKDIR /application
