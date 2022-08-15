@@ -58,7 +58,7 @@ def create_app(config_class):
         db.create_all(engine)
         logging.debug('Tablas creadas exitsamente')
     except:
-        logging.debug('Error en la creación de la tabla')
+        logging.debug(f'Error en la creación de la tabla {db.create_all(engine)}')
 
     from app.models.models import User
 
