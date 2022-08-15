@@ -1,3 +1,5 @@
+from asyncio.log import logger
+import logging
 from flask import Flask, render_template
 from flask_sqlalchemy import SQLAlchemy
 #from flask_cors import CORS, cross_origin
@@ -49,7 +51,11 @@ def create_app(config_class):
     
     # configuración base de datos
     from app.database.setup import create_tables
-    create_tables(app=app, db=db, config_class=config_class)
+    import logging
+    engine = create_tables(app=app, db=db, config_class=config_class)
+    logging.debug("Tabla creada exitosamente!\n")
+    db.create_all(engine)
+    logging.debug('Creación de tablas exisotamente')
     
     from app.models.models import User
 
