@@ -12,7 +12,12 @@ volume --> sudo docker volume rm VOLUME NAME
 container --> sudo docker rm id
 images --> sudo docker rmi id
 
-
+eliminar todo:
+1. --> sudo docker volume ls -f dangling=true
+2. --> sudo docker volume prune
+3. --> sudo docker ps -a
+4. --> sudo docker stop $(docker ps -a -q)
+5. --> sudo docker rm $(docker ps -a -q)
 
 sudo docker-compose images
 sudo docker-compose ps
