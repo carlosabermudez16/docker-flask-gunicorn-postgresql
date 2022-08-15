@@ -10,7 +10,7 @@ services:
       - ./database.env
     
     ports:
-      - "5435:5435"
+      - "5435:5432"
     container_name: postgres_database
 
   pgadmin:
