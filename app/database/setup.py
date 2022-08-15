@@ -29,6 +29,7 @@ def create_tables(app,db, config_class):
                 logging.debug(f"\nConexión a base de datos {name} exitosa!")
 
             db.create_all(app=app)    # crea la tabla en la base de datos que se encuentra en la cadena de conexion(url)                
+            logging.debug(db.create_all(app=app))
             logging.debug('Tablas creada exitosamente!')
 
     except:
