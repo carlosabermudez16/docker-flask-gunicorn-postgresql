@@ -4,7 +4,7 @@ import logging
 logging.basicConfig(level=logging.DEBUG)
 
 
-def create_tables(app, db, config_class):
+def create_tables(app, config_class):
     
     try:
         with app.app_context():  # me permite sicronizar la base de datos con la aplicación
@@ -35,9 +35,9 @@ def create_tables(app, db, config_class):
             
         
     except:
-        print(f"Error at create_tables()" )
+        
         engine = None
-        logging.debug('Error en la creación de la tabla')
+        
     
     return engine
     
