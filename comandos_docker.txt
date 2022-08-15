@@ -22,6 +22,7 @@ eliminar todo:
 sudo docker-compose images
 sudo docker-compose ps
 
+para vel el host de la base de datos --> sudo docker inspect id
 
 -------------------------------
 
