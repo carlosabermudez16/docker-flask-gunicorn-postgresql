@@ -5,6 +5,7 @@ RUN mkdir /application
 WORKDIR /application
 # copiamos el archivo y lo pegamos en el directorio build_context
 COPY ./requirements.txt /application
+RUN pip install --upgrade pip
 RUN python3 -m pip install -r requirements.txt
 COPY . /application
 # Run Flask command
