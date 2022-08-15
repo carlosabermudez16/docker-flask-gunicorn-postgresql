@@ -51,15 +51,9 @@ def create_app(config_class):
     
     # configuración base de datos
     from app.database.setup import create_tables
-    import logging
-    engine = create_tables(app=app,config_class=config_class)
-    try:
-        
-        db.create_all(bind=engine)
-        logging.debug('Tablas creadas exitsamente')
-    except:
-        logging.debug(f'Error en la creación de la tabla {db.create_all(bind=engine)}')
-
+    
+    create_tables(app=app,db=db, config_class=config_class)
+    
     from app.models.models import User
 
     @login_manager.user_loader
