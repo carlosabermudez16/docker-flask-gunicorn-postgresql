@@ -8,11 +8,8 @@ services:
       - postgres_data:/var/lib/postgresql/data/
     env_file:
       - ./database.env
-    expose:
-      - "5433"
     ports:
-      - "5433:5433"
-    command: -p 5433
+      - "5433:5432"
     container_name: postgres_database
 
   pgadmin:
