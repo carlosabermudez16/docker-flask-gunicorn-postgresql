@@ -54,9 +54,9 @@ def create_app(config_class):
     import logging
     engine = create_tables(app=app, db=db, config_class=config_class)
     logging.debug("Tabla creada exitosamente!\n")
-    db.create_all(engine)
+    db.metadata.create_all(engine)
     logging.debug('Creación de tablas exisotamente')
-    
+
     from app.models.models import User
 
     @login_manager.user_loader

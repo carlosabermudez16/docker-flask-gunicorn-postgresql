@@ -33,10 +33,11 @@ def create_tables(app, db, config_class):
             #db.metadata.create_all(engine)    # crea la tabla en la base de datos que se encuentra en la cadena de conexion(url)                
         
             
-        return engine
+        
     except:
         print(f"Error at create_tables()" )
         engine = None
         logging.debug('Error en la creación de la tabla')
-        return engine
+    
+    return engine
     
