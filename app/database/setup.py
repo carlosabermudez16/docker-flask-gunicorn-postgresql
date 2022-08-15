@@ -28,12 +28,12 @@ def create_tables(app,db, config_class):
                 name = 'Postgresql_docker'
                 logging.debug(f"\nConexión a base de datos {name} exitosa!")
 
-            db.create_all(bind=engine)    # crea la tabla en la base de datos que se encuentra en la cadena de conexion(url)                
+            db.create_all(engine)    # crea la tabla en la base de datos que se encuentra en la cadena de conexion(url)                
             logging.debug('Tablas creada exitosamente!')
 
     except:
         
         logging.debug('\nError en la creación de la tabla: ')
-        logging.debug(db.create_all(bind=engine))
+        logging.debug(db.create_all(engine))
 
     
