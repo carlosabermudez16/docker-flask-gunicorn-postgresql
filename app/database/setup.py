@@ -31,9 +31,7 @@ def create_tables(app, config_class):
                 
             
             #db.metadata.create_all(engine)    # crea la tabla en la base de datos que se encuentra en la cadena de conexion(url)                
-        
-            
-        
+
     except:
         
         engine = None
