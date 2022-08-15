@@ -35,7 +35,7 @@ def create_app(config_class):
         print('hubo un error en la configuración')
 
     app.config.from_object(configuration)
-    
+    app.app_context().push()
 #    Cors.init_app(app)
 #    CORS(app, resources={r'/services_api_public/': {'origins': 'http://localhost:8080'}}, CORS_SUPPORTS_CREDENTIALS = True)
 #    app.config['CORS_HEADERS'] = 'Content-Type'
