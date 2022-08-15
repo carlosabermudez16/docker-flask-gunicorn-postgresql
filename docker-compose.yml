@@ -6,11 +6,10 @@ services:
     restart: always
     volumes:
       - postgres_data:/var/lib/postgresql/data/
-    env_file:
-      - ./database.env
+    env_file: database.conf
     
     ports:
-      - "5435:5432"
+      - 5435:5432
     container_name: postgres_database
 
   pgadmin:
