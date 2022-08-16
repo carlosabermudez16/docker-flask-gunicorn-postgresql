@@ -50,14 +50,10 @@ def create_app(config_class):
     mail.init_app(app)
     
     # configuración base de datos
-    from app.database.setup import create_tables
     from app.database.model import User,Comment
-    
-    engine = create_tables(app=app,db=db, config_class=config_class)
-    db.metadata.create_all(engine)
-    
+    from app.database.setup import create_tables
+    create_tables(app=app,db=db, config_class=config_class)
     logging.debug('Tablas creada exitosamente!')
-    db.session.query(User)
             
     
 
