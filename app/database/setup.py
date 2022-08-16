@@ -33,7 +33,6 @@ def create_tables(app,db, config_class):
     except:
         
         logging.debug('\nError en la creación de la tabla: ')
-        logging.debug(db.create_engine(uri,{}))
         engine = None
     
     return db.metadata.create_all(engine)
