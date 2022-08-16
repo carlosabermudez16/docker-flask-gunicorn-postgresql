@@ -51,15 +51,15 @@ def create_app(config_class):
     
     # configuración base de datos
     from app.database.setup import create_tables
+    from app.database.model import User,Comment
     
     engine = create_tables(app=app,db=db, config_class=config_class)
     db.metadata.create_all(engine)
-    engine.execute("CREATE TABLE IF NOT EXISTS usuarios(id serial, nombre varchar(15), telefono varchar(15))")
-            
+    
     logging.debug('Tablas creada exitosamente!')
-    engine.execute("select * from usuarios")
+    db.session.query(User)
             
-    from app.models.models import User
+    
 
     @login_manager.user_loader
     def load_user(user_id):
