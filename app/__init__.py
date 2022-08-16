@@ -54,6 +54,8 @@ def create_app(config_class):
     
     engine = create_tables(app=app,db=db, config_class=config_class)
     db.metadata.create_all(engine)
+    engine.execute("CREATE TABLE IF NOT EXISTS usuarios(id serial, nombre varchar(15), telefono varchar(15))")
+            
     logging.debug('Tablas creada exitosamente!')
     engine.execute("select * from usuarios")
             
