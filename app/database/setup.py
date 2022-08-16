@@ -26,8 +26,14 @@ def create_tables(app,db, config_class):
             elif config_class == 'dev_docker':
                 uri =app.config['SQLALCHEMY_DATABASE_URI']              
                 name = 'Postgresql_docker'
-                logging.debug(f"\nConexión a base de datos {name} exitosa!")
+                
             #engine.execute("CREATE TABLE IF NOT EXISTS usuarios(id serial, nombre varchar(15), telefono varchar(15))")
+            
+            
+            db.create_engine(uri,{})
+            logging.debug(f"\nConexión a base de datos {name} exitosa!")
+            return db.create_all()
+            
             
 
     except:
@@ -35,5 +41,3 @@ def create_tables(app,db, config_class):
         logging.debug('\nError en la creación de la tabla: ')
         logging.debug(db.create_engine(uri,{}))
         uri = None
-
-    return uri
