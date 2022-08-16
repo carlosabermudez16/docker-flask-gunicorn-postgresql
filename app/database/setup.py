@@ -39,4 +39,4 @@ def create_tables(app,db, config_class):
         logging.debug(db.create_engine(uri,{}))
         engine = None
     
-    return db.create_all(engine)
+    return db.metadata.create_all(engine)
