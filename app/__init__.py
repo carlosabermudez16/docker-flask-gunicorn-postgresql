@@ -53,8 +53,8 @@ def create_app(config_class):
     from app.database.setup import create_tables
     
     engine = create_tables(app=app,db=db, config_class=config_class)
-    db.create_engine(engine)
-    db.create_all()
+    #db.create_engine(engine)
+    #db.create_all()
 
 
     from app.models.models import User
