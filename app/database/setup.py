@@ -30,13 +30,13 @@ def create_tables(app,db, config_class):
             #engine.execute("CREATE TABLE IF NOT EXISTS usuarios(id serial, nombre varchar(15), telefono varchar(15))")
             
             
-            db.create_engine(uri,{})
+            engine = db.create_engine(uri,{})
             logging.debug(f"\nConexión a base de datos {name} exitosa!")
 
     except:
         
         logging.debug('\nError en la creación de la tabla: ')
         logging.debug(db.create_engine(uri,{}))
-        uri = None
+        engine = None
     
-    return db.create_all()
+    return db.create_all(engine)
