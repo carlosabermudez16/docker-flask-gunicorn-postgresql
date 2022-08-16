@@ -55,6 +55,7 @@ def create_app(config_class):
     #engine = create_tables(app=app,db=db, config_class=config_class)
     try:
         db.create_engine(configuration.ruta,{})
+        logging.debug(configuration.ruta)
         db.create_all()
         logging.debug('Tablas creada exitosamente!')
     except:
