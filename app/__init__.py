@@ -39,7 +39,7 @@ def create_app(config_class):
 #    Cors.init_app(app)
 #    CORS(app, resources={r'/services_api_public/': {'origins': 'http://localhost:8080'}}, CORS_SUPPORTS_CREDENTIALS = True)
 #    app.config['CORS_HEADERS'] = 'Content-Type'
-
+    logging.basicConfig(level=logging.DEBUG)
 
     login_manager.session_protection = "strong"
     login_manager.login_view = 'rg.loggin'
