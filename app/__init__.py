@@ -53,9 +53,13 @@ def create_app(config_class):
     #from app.database.setup import create_tables
     
     #engine = create_tables(app=app,db=db, config_class=config_class)
-    db.create_engine(configuration.ruta,{})
-    db.create_all()
-    logging.debug('Tablas creada exitosamente!')
+    try:
+        db.create_engine(configuration.ruta,{})
+        db.create_all()
+        logging.debug('Tablas creada exitosamente!')
+    except:
+        logging.debug(f'Error: {db.create_engine(configuration.ruta,{})}')
+        logging.debug(f'{db.create_all()}')
 
     from app.models.models import User
 
