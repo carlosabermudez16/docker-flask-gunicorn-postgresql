@@ -38,7 +38,7 @@ class Config(object):
 
 
 class DevelopmentConfig(Config):
-    
+    name = 'Postgresql'
     host,database,user,password,puerto,driver = os.getenv("HOST2"),os.getenv("DATABASE2"),os.getenv("USER2"),os.getenv("PASSWORD2"),os.getenv("PORT2"),os.getenv("DRIVER2")
     ruta = f'{driver}://{user}:{password}@{host}:{puerto}/{database}'
     
@@ -47,7 +47,7 @@ class DevelopmentConfig(Config):
     DEBUG = False
 
 class DevDocker(Config):
-    
+    name = 'Postgresql_docker'
     host,database,user,password,puerto,driver = os.getenv("HOST_DOCKER"),os.getenv("DATABASE_DOCKER"),os.getenv("USER_DOCKER"),os.getenv("PASSWORD_DOCKER"),os.getenv("PORT_DOCKER"),os.getenv("DRIVER_DOCKER")
     ruta = f'{driver}://{user}:{password}@{host}:{puerto}/{database}'
     
@@ -56,6 +56,7 @@ class DevDocker(Config):
     DEBUG = False
 
 class CloudDev(Config):
+    name = 'Postgresql_cloud'
     host,database,user,password,puerto,driver = os.getenv("HOST_CLOUD"),os.getenv("DATABASE_CLOUD"),os.getenv("USER_CLOUD"),os.getenv("PASSWORD_CLOUD"),os.getenv("PORT_CLOUD"),os.getenv("DRIVER_CLOUD")
     ruta = f'{driver}://{user}:{password}@{host}:{puerto}/{database}'
     
@@ -64,7 +65,7 @@ class CloudDev(Config):
     DEBUG = False
     
 class ProductionConfig(Config):
-    
+    name = 'Mysql'
     host,database,user,password,puerto,driver = os.getenv("HOST"),os.getenv("DATABASE"),os.getenv("USER"),os.getenv("PASSWORD"),os.getenv("PORT"),os.getenv("DRIVER")
     ruta = f'{driver}://{user}:{password}@{host}:{puerto}/{database}'
     

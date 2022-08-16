@@ -51,13 +51,12 @@ def create_app(config_class):
     
     # configuración base de datos
     from app.database.model import User,Comment
-    #from app.database.setup import create_tables
-    #create_tables(app=app,db=db, config_class=config_class)
     uri = configuration.ruta
     db.create_engine(uri,{})
+    logging.debug(f"\nConexión a base de datos exitosa!")
     db.create_all()
     logging.debug('Tablas creada exitosamente!')
-            
+    logging.debug(f'Modo: {configuration.name}')
     
 
     @login_manager.user_loader
