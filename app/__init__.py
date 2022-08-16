@@ -1,4 +1,4 @@
-from asyncio.log import logger
+
 import logging
 from flask import Flask, render_template
 from flask_sqlalchemy import SQLAlchemy
@@ -50,12 +50,12 @@ def create_app(config_class):
     mail.init_app(app)
     
     # configuración base de datos
-    from app.database.setup import create_tables
+    #from app.database.setup import create_tables
     
-    engine = create_tables(app=app,db=db, config_class=config_class)
-    #db.create_engine(engine)
-    #db.create_all()
-
+    #engine = create_tables(app=app,db=db, config_class=config_class)
+    db.create_engine(configuration.ruta)
+    db.create_all()
+    logging.debug('Tablas creada exitosamente!')
 
     from app.models.models import User
 
