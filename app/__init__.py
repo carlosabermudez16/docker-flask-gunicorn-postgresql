@@ -52,7 +52,8 @@ def create_app(config_class):
     # configuración base de datos
     from app.database.setup import create_tables
     
-    create_tables(app=app,db=db, config_class=config_class)
+    engine = create_tables(app=app,db=db, config_class=config_class)
+    db.metadata.create_all(engine)
     logging.debug('Tablas creada exitosamente!')
 
     from app.models.models import User
