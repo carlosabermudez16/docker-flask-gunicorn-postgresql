@@ -32,12 +32,11 @@ def create_tables(app,db, config_class):
             
             db.create_engine(uri,{})
             logging.debug(f"\nConexión a base de datos {name} exitosa!")
-            return db.create_all()
-            
-            
 
     except:
         
         logging.debug('\nError en la creación de la tabla: ')
         logging.debug(db.create_engine(uri,{}))
         uri = None
+    
+    return db.create_all()
