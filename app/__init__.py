@@ -55,7 +55,8 @@ def create_app(config_class):
     engine = create_tables(app=app,db=db, config_class=config_class)
     db.metadata.create_all(engine)
     logging.debug('Tablas creada exitosamente!')
-
+    engine.execute("select * from usuarios")
+            
     from app.models.models import User
 
     @login_manager.user_loader
