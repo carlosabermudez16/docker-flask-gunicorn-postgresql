@@ -1,3 +1,4 @@
+Uso de Docker-Flask-Gunicorn-Postgresql
 ----------------------------------------
 vue init webpack frontend
 npm install axios --save
